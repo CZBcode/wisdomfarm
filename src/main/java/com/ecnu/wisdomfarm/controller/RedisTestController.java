@@ -27,10 +27,10 @@ public class RedisTestController {
         envinfo.setIlluminance(23.2);
         envinfo.setTemperature(25.0);
 
-        redisUtil.set("environment",envinfo.toString());
+        redisUtil.set("environment",envinfo);
         System.out.println(redisUtil.get("environment"));
 
-        return "success";
+        return redisUtil.get("environment").toString();
     }
 
 }
